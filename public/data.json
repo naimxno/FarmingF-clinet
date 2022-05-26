@@ -1,10 +1,26 @@
 [
   {
-    "product_name": "Table and camping chairs",
-    "per_unit_price": 499,
-    "min_order_quantity": 20,
-    "available_quantity": 20,
-    "image": "https://ibb.co/cFR4NBW",
-    "description": "waiting..."
+    "product_name": "Garden Tool set",
+    "per_unit_price": 20,
+    "min_order_quantity": 10,
+    "available_quantity": 1000,
+    "image": "https://i.ibb.co/KFpFhPh/81c-F7-B7-C24-L-AC-SX679.jpg",
+    "description": "contains 12 pieces High quality gardening tools. Gardening pruners blades are made of high carbon sk-5 Steel. Compare with aluminum Made blades, It is more toughness, sharp and durable."
+  },
+  {
+    "product_name": "Scuddles Garden Tools Set",
+    "per_unit_price": 16,
+    "min_order_quantity": 15,
+    "available_quantity": 1500,
+    "image": "https://i.ibb.co/Q8RxFS5/71wj-Nay-u-BL-AC-SX679.jpg",
+    "description": "Scuddles garden tools help you clear dirt and debris from plants without doing damage to the bases of the plants. You can also use them to help you plant seeds."
+  },
+  {
+    "product_name": "NEIKO 61090A 8 Pc Garden Tool Set",
+    "per_unit_price": 23,
+    "min_order_quantity": 12,
+    "available_quantity": 200,
+    "image": "https://i.ibb.co/5MnG3f7/61-DA78s11-L-AC-SX679.jpg",
+    "description": "The NEIKO gardening kit consists of a heavy duty set that offers planting tools that are constructed of high-grade polished aluminum that resists rust for the toughest gardening jobs in your home garden."
   }
 ]

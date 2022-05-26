@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Product from './Product';
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/products')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+  }, [])
   return (
     <div>
-      <div>
-        <h1 className='text-3xl text-center font-bold text-secondary m-5'>Our Products</h1>
+      <div className='m-12'>
+        <h1 className='text-3xl text-center font-bold text-secondary'>Our Products</h1>
+        <div style={{ width: '10rem', border: '2px solid black', margin: 'auto', borderRadius: '10px' }}></div>
       </div>
-      <div className="card h-1/2 bg-base-100 shadow-xl">
-        <figure><img className='w-50' src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
-          </div>
-        </div>
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
+        {
+          products.map(product => <Product
+            key={product._id}
+            product={product}
+          ></Product>)
+        }
       </div>
     </div>
   );

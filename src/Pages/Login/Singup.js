@@ -1,10 +1,12 @@
 import React from 'react';
-import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
-const Login = () => {
+
+const Singup = () => {
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const [
     signInWithGoogle,
     gUser,
@@ -12,14 +14,19 @@ const Login = () => {
     gError
   ] = useSignInWithGoogle(auth);
   const [
-    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     user,
     loading,
     error,
-  ] = useSignInWithEmailAndPassword(auth);
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  ] = useCreateUserWithEmailAndPassword(auth);
+  const [
+    updateProfile,
+    updating,
+    updateError
+  ] = useUpdateProfile(auth);
 
-  // const navigate = Navigate();
+  const navigate = useNavigate();
+
   let errorMessage;
 
   if (error || gError) {
@@ -28,16 +35,16 @@ const Login = () => {
   if (user || gUser) {
     console.log(user || gUser);
   }
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     console.log(data)
-    signInWithEmailAndPassword(data.email, data.password);
-    // navigate('/')
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: Date.name });
+    navigate('/')
   };
-
   return (
     <div className='flex justify-center item-center mt-8'>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -45,6 +52,22 @@ const Login = () => {
           <h2 className="text-center text-3xl font-bold">Log In</h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control w-full max-w-xs py-2">
+              <input
+                type="name"
+                placeholder="Your Name"
+                className="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is Required"
+                  }
+                })} />
+              <label className="label">
+                {errors?.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+              </label>
+            </div>
+
             <div className="form-control w-full max-w-xs py-2">
               <input
                 type="email"
@@ -97,7 +120,7 @@ const Login = () => {
 
           </form>
 
-          <small className='text-center'>New to Our website? <strong><Link className='text-red-900' to='/singup'>Create new account</Link></strong> </small>
+          <small className='text-center'>All ready have an account? <strong><Link className='text-red-900' to='/login'>Login</Link></strong> </small>
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
@@ -108,4 +131,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Singup;

@@ -1,18 +1,26 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import name from '../../assets/images/loge.png'
+import auth from '../../firebase.init';
 
 const Navber = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
   const menuItem =
     <>
       <li><Link to='/'>HOME</Link> </li>
       <li><Link to='/portfolio'>MY PORTFOLIO</Link> </li>
       <li><Link to='/blog'>BLOG</Link> </li>
-      <li><Link to='/login'>LOGIN</Link> </li>
+      <li>{user ? <button onClick={logout} class="btn btn-ghost">Logout</button> : <Link to='/login'>LOGIN</Link>}</li>
     </>
 
   return (
-    <div className='sticky top-0'>
+    <div className='sticky z-[100] top-0'>
       <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <Link to='/'><img src={name} className="w-28" alt="" srcSet="" /></Link>
