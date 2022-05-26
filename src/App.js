@@ -4,6 +4,7 @@ import './App.css';
 import Blog from './Pages/Blog/Blog';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
+import RequireAuth from './Pages/Login/RequireAuth';
 import Singup from './Pages/Login/Singup';
 import Order from './Pages/Order/Order';
 import Portfolio from './Pages/Portfolio/Portfolio';
@@ -19,7 +20,11 @@ function App() {
         <Route path='/singup' element={<Singup></Singup>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/order/:id' element={<Order></Order>}></Route>
+        <Route path='/order/:orderId' element={
+          <RequireAuth>
+            <Order></Order>
+          </RequireAuth>
+        }></Route>
       </Routes>
     </div>
   );

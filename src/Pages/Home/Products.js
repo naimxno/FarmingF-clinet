@@ -11,8 +11,8 @@ const Products = () => {
   return (
     <div>
       <div className='m-12'>
-        <h1 className='text-3xl text-center font-bold text-secondary'>Our Products</h1>
-        <div style={{ width: '10rem', border: '2px solid black', margin: 'auto', borderRadius: '10px' }}></div>
+        <h1 className='text-3xl text-center font-bold text-teal-600 '>Our Products</h1>
+        <div className='border-2 border-teal-600 rounded-lg m-auto w-40'></div>
       </div>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
         {
