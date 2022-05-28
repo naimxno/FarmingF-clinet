@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import UseAdmin from '../../Hooks/UseAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = UseAdmin(user)
+  console.log(admin);
   return (
     <div class="drawer drawer-mobile text-stone-50  mt-5">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -17,9 +23,16 @@ const Dashboard = () => {
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
           <li><Link to='/dashboard'>My Profile</Link></li>
-          <li><Link to='/dashboard/orders'>My Order</Link></li>
-          <li><Link to='/dashboard/review'>Add A Review</Link></li>
-          <li><Link to='/dashboard/users'>ALL User</Link></li>
+          {admin ?
+            <>
+              <li><Link to='/dashboard/users'>ALL User</Link></li>
+            </>
+            :
+            <>
+              <li><Link to='/dashboard/orders'>My Order</Link></li>
+              <li><Link to='/dashboard/review'>Add A Review</Link></li>
+            </>
+          }
 
         </ul>
 

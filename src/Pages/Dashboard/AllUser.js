@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-
 
 const AllUser = () => {
   const [users, setUsers] = useState([])
@@ -10,6 +8,7 @@ const AllUser = () => {
       .then(res => res.json())
       .then(data => setUsers(data))
   }, [users])
+
   const makeAdmin = email => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
       method: 'PUT',
