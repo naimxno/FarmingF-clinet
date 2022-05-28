@@ -72,13 +72,13 @@ const Order = () => {
         <h2 className="text-2xl h-16 font-bold w-full text-center p-3">Check Out</h2>
 
         <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
-          <input name='productName' type="text" disabled placeholder={order.product_name} class="input w-full  text-lg font-bold max-w-xs" />
-          <input name='userName' type="text" disabled placeholder={user?.displayName} class="input w-full  text-lg font-bold max-w-xs" />
-          <input name='email' type="email" disabled placeholder={user?.email} class="input w-full  text-lg font-bold max-w-xs" />
+          <input name='productName' type="text" disabled placeholder={order.product_name} className="input w-full  text-lg font-bold max-w-xs" />
+          <input name='userName' type="text" disabled placeholder={user?.displayName} className="input w-full  text-lg font-bold max-w-xs" />
+          <input name='email' type="email" disabled placeholder={user?.email} className="input w-full  text-lg font-bold max-w-xs" />
 
-          <input name='phoneNumber' type="text" placeholder='Phone number' class="input w-full  text-lg font-bold max-w-xs" />
+          <input name='phoneNumber' type="text" placeholder='Phone number' className="input w-full  text-lg font-bold max-w-xs" />
 
-          <input name='address' type="text" placeholder='Address' class="input w-full mb-2 text-lg font-bold max-w-xs" />
+          <input name='address' type="text" placeholder='Address' className="input w-full mb-2 text-lg font-bold max-w-xs" />
 
           <input name='quantity' required min={order.min_order_quantity} max={order.available_quantity} type="number" placeholder='Quantity' className="input w-full mb-2 text-lg font-bold max-w-xs" />
 

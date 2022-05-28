@@ -17,8 +17,8 @@ const MyOrders = () => {
   }, [user])
 
   return (
-    <div class="overflow-x-auto text-black mt-5 p-5">
-      <table class="table w-full">
+    <div className="overflow-x-auto text-black mt-5 p-5">
+      <table className="table w-full">
 
         <thead>
           <tr>

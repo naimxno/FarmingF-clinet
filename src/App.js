@@ -1,11 +1,15 @@
 
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+
 import './App.css';
 import Blog from './Pages/Blog/Blog';
+import AddProduct from './Pages/Dashboard/AddProduct';
 import AddReview from './Pages/Dashboard/AddReview';
 import AllUser from './Pages/Dashboard/AllUser';
 import Dashboard from './Pages/Dashboard/Dashboard';
+
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import ManageAllProduct from './Pages/Dashboard/ManageAllProduct';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import Profile from './Pages/Dashboard/Profile';
 import Home from './Pages/Home/Home';
@@ -40,6 +44,9 @@ function App() {
           <Route path='orders' element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddReview></AddReview>}></Route>
           <Route path='users' element={<AllUser></AllUser>}></Route>
+          <Route path='manageOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path='manageProducts' element={<ManageAllProduct></ManageAllProduct>}></Route>
+          <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
         </Route>
       </Routes>
 

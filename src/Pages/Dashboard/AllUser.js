@@ -21,8 +21,8 @@ const AllUser = () => {
       })
   }
   return (
-    <div class="overflow-x-auto text-black mt-5 p-5">
-      <table class="table w-full">
+    <div className="overflow-x-auto text-black mt-5 p-5">
+      <table className="table w-full">
 
         <thead>
           <tr>
@@ -34,15 +34,15 @@ const AllUser = () => {
         <tbody>
           {
             users.map(user =>
-              <tr>
+              <tr key={user._id}>
                 <th>{user.email}</th>
                 <td>
                   {
-                    user.role ? <h1 className='font-bold ml-4'>Admin</h1> : <button onClick={() => makeAdmin(user.email)} class="btn  btn-sm btn-outline">Make Admin</button>
+                    user.role ? <h1 className='font-bold ml-4'>Admin</h1> : <button onClick={() => makeAdmin(user.email)} className="btn  btn-sm btn-outline">Make Admin</button>
                   }
                 </td>
                 <td>
-                  <button class="btn  btn-sm btn-outline">Remove User</button>
+                  <button className="btn  btn-sm btn-outline">Remove User</button>
                 </td>
               </tr>
             )
