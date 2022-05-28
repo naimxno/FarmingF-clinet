@@ -10,7 +10,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/purchase?email=${user.email}`)
+      fetch(`https://serene-hollows-95541.herokuapp.com/purchase?email=${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrders(data))
     }
@@ -24,16 +24,19 @@ const MyOrders = () => {
           <tr>
             <th>Product Name</th>
             <th>Quantity</th>
-            <th>Favorite Color</th>
+            <th>State</th>
           </tr>
         </thead>
         <tbody>
           {
             myOrders.map(myOrder =>
-              <tr>
+              <tr key={myOrder._id}>
                 <th>{myOrder.product_name}</th>
                 <td>{myOrder.quantity}</td>
-                <td>Quality Control Specialist</td>
+                <td>
+                  <button className="btn  btn-sm btn-outline mr-2">Pay</button>
+                  <button className="btn  btn-sm btn-outline">Cancel</button>
+                </td>
               </tr>
             )
           }

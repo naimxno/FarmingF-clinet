@@ -4,13 +4,13 @@ const AllUser = () => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/user')
+    fetch('https://serene-hollows-95541.herokuapp.com/user')
       .then(res => res.json())
       .then(data => setUsers(data))
   }, [users])
 
   const makeAdmin = email => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://serene-hollows-95541.herokuapp.com/user/admin/${email}`, {
       method: 'PUT',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accesstoken')}`

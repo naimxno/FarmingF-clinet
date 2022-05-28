@@ -3,7 +3,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
-import { toast } from 'react-toastify';
 
 
 const Order = () => {
@@ -13,18 +12,11 @@ const Order = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/order/${orderId}`
+    const url = `https://serene-hollows-95541.herokuapp.com/order/${orderId}`
     fetch(url)
       .then(res => res.json())
       .then(data => setOrder(data))
   }, []);
-  if (loading) {
-    return <Loading></Loading>
-  }
-
-
-
-
   const handleSubmit = event => {
     event.preventDefault();
     const phoneNumber = event.target.phoneNumber.value;
@@ -37,8 +29,9 @@ const Order = () => {
       phoneNumber,
       address,
       quantity
+
     }
-    fetch('http://localhost:5000/purchase', {
+    fetch('https://serene-hollows-95541.herokuapp.com/purchase', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -47,11 +40,14 @@ const Order = () => {
     })
       .then(res => res.json)
       .then(data => {
+
       })
   }
 
 
-
+  if (loading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="flex flex-col mt-5 w-full lg:flex-row items-center">

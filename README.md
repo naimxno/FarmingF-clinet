@@ -1,12 +1,21 @@
-# Getting Started with Create React App
+# FarmingF
+live site link[FarmingF](https://farmingf-dcf15.web.app/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# use technologies: 
 
-## Available Scripts
+### HTML
+### CSS
+### JAVASCRIPT
+### TAILWIND
+### MONGODB
+### EXPRESS
+### HEROKU
+### FIREBASE
+### REACT HOOK
+### REACT TOASTIFY
+### REACT ROUTER
+### REACT FORM
 
-In the project directory, you can run:
-
-### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

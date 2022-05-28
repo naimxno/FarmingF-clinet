@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch('http://localhost:5000/purchases')
+    fetch('https://serene-hollows-95541.herokuapp.com/purchases')
       .then(res => res.json())
       .then(data => setAllOrders(data))
   }, [])
@@ -16,7 +19,7 @@ const ManageAllOrders = () => {
           <tr>
             <th>Product Name</th>
             <th>Quantity</th>
-            <th>Favorite Color</th>
+            <th>State</th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +28,10 @@ const ManageAllOrders = () => {
               <tr key={order._id}>
                 <th>{order.product_name}</th>
                 <td>{order.quantity}</td>
-                <td>Quality Control Specialist</td>
+                <td>
+                  <span>payed</span>
+                  <button className="btn  btn-xs btn-outline ml-2">shipping</button>
+                </td>
               </tr>
             )
           }
