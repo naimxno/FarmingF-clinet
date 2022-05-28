@@ -10,13 +10,17 @@ const Navber = () => {
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
   };
   const menuItem =
     <>
       <li><Link to='/'>HOME</Link> </li>
-      <li><Link to='/portfolio'>MY PORTFOLIO</Link> </li>
+      <li><Link to='/portfolio'>PORTFOLIO</Link> </li>
       <li><Link to='/blog'>BLOG</Link> </li>
-      <li>{user ? <button onClick={logout} class="btn btn-ghost">Logout</button> : <Link to='/login'>LOGIN</Link>}</li>
+      {
+        user && <li><Link to='/dashboard'>DASHBOARD</Link> </li>
+      }
+      <li>{user ? <button onClick={logout} className="btn btn-ghost">Logout</button> : <Link to='/login'>LOGIN</Link>}</li>
     </>
 
   return (

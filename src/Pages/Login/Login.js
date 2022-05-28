@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 const Login = () => {
   const [
     signInWithGoogle,
@@ -18,12 +19,18 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
+  const [token] = useToken(user || gUser);
 
+  let errorMessage;
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  let errorMessage;
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate])
 
   if (loading || gLoading) {
     return <Loading></Loading>;
@@ -31,11 +38,6 @@ const Login = () => {
   if (error || gError) {
     errorMessage = <p className='p-1 text-red-500'> <small>{error?.message}||{gError?.message}</small> </p>
   }
-
-  if (user || gUser) {
-    navigate(from, { replace: true });
-  }
-
   const onSubmit = data => {
     signInWithEmailAndPassword(data.email, data.password);
   };
@@ -94,7 +96,6 @@ const Login = () => {
             <input
               type="Submit"
               defaultValue='LOGIN'
-              placeholder="Your Password"
               className="input bg-slate-800 text-white input-bordered w-full max-w-xs btn" />
 
           </form>

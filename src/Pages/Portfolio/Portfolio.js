@@ -140,27 +140,27 @@ const Portfolio = () => {
             <div className="divide-y divide-blue-200">
               <h2 className="text-xl text-center text-white font-bold p-5">My Portfolio</h2>
               <div className='text-white p-5 grid gap-5 grid lg:grid-cols-3'>
-                <div class="card m-auto w-60 shadow-xl image-full">
-                  <div class="card-body">
-                    <h2 class="text-center text-3xl p-2">happyouting</h2>
-                    <div class="card-actions justify-center">
-                      <a href="https://happyouting-188a5.firebaseapp.com/"><button class="btn btn-primary">LIVE SITE</button></a>
+                <div className="card m-auto w-60 shadow-xl image-full">
+                  <div className="card-body">
+                    <h2 className="text-center text-3xl p-2">happyouting</h2>
+                    <div className="card-actions justify-center">
+                      <a href="https://happyouting-188a5.firebaseapp.com/"><button className="btn btn-primary">LIVE SITE</button></a>
                     </div>
                   </div>
                 </div>
-                <div class="card w-60  m-auto shadow-xl image-full">
-                  <div class="card-body">
-                    <h2 class="text-center text-3xl p-2">BOOK APP</h2>
-                    <div class="card-actions justify-center">
-                      <a href="https://sunny-horse-197c7c.netlify.app/"><button class="btn btn-primary">LIVE SITE</button></a>
+                <div className="card w-60  m-auto shadow-xl image-full">
+                  <div className="card-body">
+                    <h2 className="text-center text-3xl p-2">BOOK APP</h2>
+                    <div className="card-actions justify-center">
+                      <a href="https://sunny-horse-197c7c.netlify.app/"><button className="btn btn-primary">LIVE SITE</button></a>
                     </div>
                   </div>
                 </div>
-                <div class="card w-60  m-auto shadow-xl image-full">
-                  <div class="card-body">
-                    <h2 class="text-center text-3xl p-2">In Focus</h2>
-                    <div class="card-actions justify-center">
-                      <a href="https://infocus-c94eb.firebaseapp.com/Login"><button class="btn btn-primary">LIVE SITE</button></a>
+                <div className="card w-60  m-auto shadow-xl image-full">
+                  <div className="card-body">
+                    <h2 className="text-center text-3xl p-2">In Focus</h2>
+                    <div className="card-actions justify-center">
+                      <a href="https://infocus-c94eb.firebaseapp.com/Login"><button className="btn btn-primary">LIVE SITE</button></a>
                     </div>
                   </div>
                 </div>

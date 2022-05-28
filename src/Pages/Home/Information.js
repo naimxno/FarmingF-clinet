@@ -6,9 +6,9 @@ import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 const Information = () => {
   return (
-    <div class="card  w-full bg-base-100">
-      <div class="card-body">
-        <h2 class="text-2xl font-bold text-center text-teal-600 uppercase">Million Business Trust Us</h2>
+    <div className="card  w-full bg-base-100">
+      <div className="card-body">
+        <h2 className="text-2xl font-bold text-center text-teal-600 uppercase">Million Business Trust Us</h2>
         <p className='text-center font-medium'>Try To Understand Users Expectation</p>
         <div className='grid lg:grid-cols-4 border-2 border-teal-600 grid-cols-2 m-5  w-full'>
           <div className='card p-5 w-40 m-auto flex items-center flex-col text-center'>

@@ -31,7 +31,7 @@ const Review = () => {
   return (
     <div>
       <div className='m-12'>
-        <h1 className='text-3xl text-center font-bold text-teal-600 '>Our Products</h1>
+        <h1 className='text-3xl text-center font-bold text-teal-600 '>Our Reviews</h1>
         <div className='border-2 border-teal-600 rounded-lg m-auto w-40'></div>
       </div>
       <div className='card bg-base-100 text-center mx-auto my-16 p-5 max-w-lg shadow-md capitalize'>
